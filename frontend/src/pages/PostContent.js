@@ -1,17 +1,17 @@
 import React from 'react';
-import ThreadPost from '../components/ThreadPost/ThreadPost';
-import PostHeader from '../components/PostHeader/postHeader';
+import ThreadPost from '../components/ThreadPost/ThreadPost.js';
+import PostHeader from '../components/PostHeader/postHeader.js';
 import styles from './PostContent.module.scss';
-import LeftSideBar from '../components/LeftSideBar/LeftSideBar';  
-import SideBarWidget from '../components/SideBarWidget/SideBarWidget'; 
-import Comments from '../components/Comments/Comments';
-import Related from '../components/Related/Related';  
+import LeftSideBar from '../components/LeftSideBar/LeftSideBar.js';  
+import SideBarWidget from '../components/SideBarWidget/SideBarWidget.js'; 
+import Comments from '../components/Comments/Comments.js';
+import Related from '../components/Related/Related.js';  
 import sideBarWidgetData from '../_SAMPLE_DATA/widget.json';
 import leftSideBarData from '../_SAMPLE_DATA/leftSideBar.json';
 import postHeaderData from '../_SAMPLE_DATA/postHeader.json';
 import commentsData from '../_SAMPLE_DATA/comments.json';
 import { useParams } from 'react-router-dom';
-import Navbar from '../components/Navbar/Navbar';
+import Navbar from '../components/Navbar/Navbar.js';
 import questionData from '../_SAMPLE_DATA/questions.json';
 import postData from '../_SAMPLE_DATA/threadPosts.json';
 

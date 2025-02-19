@@ -1,9 +1,9 @@
 import React from 'react';
-import Voting from '../Voting/Voting';
+import Voting from '../Voting/Voting.js';
 import styles from './ThreadPost.module.scss';
 import userInfoData from '../../_SAMPLE_DATA/userInfo.json';
-import Tag from '../Tag/Tag';
-import UserInfo from '../UserInfo/UserInfo';
+import Tag from '../Tag/Tag.js';
+import UserInfo from '../UserInfo/UserInfo.js';
 import { formatDistanceToNowStrict, differenceInDays } from 'date-fns';
 
 const ThreadPost = ({ threadPost })  => {

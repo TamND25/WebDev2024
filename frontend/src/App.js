@@ -1,11 +1,20 @@
 import React from 'react';
-import HomePage from './pages/HomePage';
-import Tour from './pages/Tour';
+import HomePage from './pages/HomePage.js';
+import Tour from './pages/Tour.js';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import PostContent from './pages/PostContent';
+import PostContent from './pages/PostContent.js';
+import { useEffect, useState } from "react";
 
 
 function App() {
+  const [message, setMessage] = useState("");
+
+  useEffect(() => {
+    fetch("http://localhost:5000")
+      .then(response => response.text())
+      .then(data => setMessage(data));
+  }, []);
+  
   return (
     <Router>
       <Routes>

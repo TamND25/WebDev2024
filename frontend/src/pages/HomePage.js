@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import QuestionList from '../components/QuestionList/QuestionList';
+import QuestionList from '../components/QuestionList/QuestionList.js';
 import questionsData from '../_SAMPLE_DATA/questions.json';
 import askersData from '../_SAMPLE_DATA/topAskerList.json';
-import Navbar from '../components/Navbar/Navbar';
+import Navbar from '../components/Navbar/Navbar.js';
 import styles from './HomePage.module.scss'
-import Footer from '../components/Footer/Footer';
-import Header from '../components/Header/Header';
-import SideBar from '../components/SideBar/SideBar';
+import Footer from '../components/Footer/Footer.js';
+import Header from '../components/Header/Header.js';
+import SideBar from '../components/SideBar/SideBar.js';
 
 const HomePage = () => {
   const [questions, setQuestions] = useState([]);

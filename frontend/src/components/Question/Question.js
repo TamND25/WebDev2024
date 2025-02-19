@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './Question.module.scss';
-import Tag from '../Tag/Tag';
+import Tag from '../Tag/Tag.js';
 import { formatDistanceToNowStrict, differenceInDays } from 'date-fns';
 
 const Question = ({ image, title, link, tags, answer, createdTime, author, field}) => {

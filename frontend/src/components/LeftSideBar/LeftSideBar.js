@@ -30,7 +30,7 @@ const leftSideBar = ({ content }) => {
                             <span className={styles["channel"]}>{channel.name}</span>
                         </div>
 
-                        {index == 2 && <div className={styles["divide"]}></div>}
+                        {index === 2 && <div className={styles["divide"]}></div>}
                     </div>  
                 ))} 
 

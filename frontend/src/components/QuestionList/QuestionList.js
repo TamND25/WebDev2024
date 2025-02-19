@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import Question from '../Question/Question';
+import Question from '../Question/Question.js';
 import styles from './QuestionList.module.scss'
 
 const QuestionList = ({ questions }) => {

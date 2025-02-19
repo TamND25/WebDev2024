@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from "react";
-import LoginButton from "../Login/LoginButton";
+import LoginButton from "../Login/LoginButton.js";
 import styles from './Navbar.module.scss';
 import { NavLink } from "react-router-dom";
 
