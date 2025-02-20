@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styles from './TopNetworkSites.module.scss';
-import linksData from '../../_SAMPLE_DATA/links.json';
+import linksData from '../../_SAMPLE_DATA/topNetworkSite.json';
 
 function TopNetworkSites() {
     const [links] = useState(linksData);

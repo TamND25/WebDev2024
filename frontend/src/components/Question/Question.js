@@ -1,9 +1,20 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import styles from './Question.module.scss';
 import Tag from '../Tag/Tag.js';
 import { formatDistanceToNowStrict, differenceInDays } from 'date-fns';
 
 const Question = ({ image, title, link, tags, answer, createdTime, author, field}) => {
+
+    const [questions, setQuestions] = useState([])
+    console.log(questions) // Solve warning 
+    
+    useEffect(() => {
+        fetch("http://localhost:5000/questions")
+        .then((response) => response.json())
+        .then((data) => setQuestions(data))
+        .catch((error) => console.error("Error fetching data: ", error));
+    }, []);
+
     console.log(createdTime)
     const createdDate = new Date(createdTime);
     
