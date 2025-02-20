@@ -19,6 +19,7 @@ mongoose.connect(MONGO_URI, { dbName: DATABASE_NAME, useNewUrlParser: true, useU
     .then(() => console.log("MongoDB Connected"))
     .catch(err => console.error("MongoDB Connection Error:", err));
 
+// Schema for topAskerList
 const topAskerListSchema = new mongoose.Schema({
     askers: [
         {
@@ -32,6 +33,7 @@ const topAskerListSchema = new mongoose.Schema({
 });
 const TopAskerList = mongoose.model("TopAskerList", topAskerListSchema, "topAskerList");
 
+// Fetch topAskerList
 app.get("/askers", async (req, res) => {
     try {
         const data = await TopAskerList.findOne({}, { askers: 1, _id: 0 }); // Fetch only the askers array
@@ -47,6 +49,37 @@ app.get("/askers", async (req, res) => {
     }
 });
 
+const questionSchema = new mongoose.Schema({
+    question: [
+        {
+            id: String,
+            image: String,
+            title: String,
+            tags: [String],
+            answer: Number,
+            created_time: Date,
+            updated_time: Date,
+            author: String,
+            field: String,
+            upvotes: Number
+        }
+    ]
+});
+const questions = mongoose.model("questions",questionSchema,"questions")
+
+app.get("/questions", async (reg, res)  =>  {
+    try {
+        const data = await questions.findOne({}, { question: 1, _id: 0 });
+        if  (data && data.question) {
+            res.json(data.question);
+        }   else    {
+            res.json([])
+        }
+    } catch (error) {
+        console.error("Error fetching data:", error);
+        res.status(500).json({ error: "Failed to fetch questions" });
+    }
+});
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on http://localhost:${PORT}`));

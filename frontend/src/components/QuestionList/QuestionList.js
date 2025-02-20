@@ -1,8 +1,18 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import Question from '../Question/Question.js';
 import styles from './QuestionList.module.scss'
 
-const QuestionList = ({ questions }) => {
+const QuestionList = () => {
+
+    const [questions, setQuestions] = useState([])
+
+    useEffect(() => {
+        fetch("http://localhost:5000/questions")
+        .then((response) => response.json())
+        .then((data) => setQuestions(data))
+        .catch((error) => console.error("Error fetching data: ", error));
+    }, []); 
+
     console.log(questions);
     const [sortBy, setSortBy] = useState('hot');
     const [currentPage, setCurrentPage] = useState(1);
@@ -31,18 +41,18 @@ const QuestionList = ({ questions }) => {
         <div className={styles.container}>
             <div className={styles["question-tab"]}>
                 <div className={styles["tabs"]}>
-                    <a 
+                    <button 
                         onClick={() => setSortBy('hot')} 
                         className={`${sortBy === 'hot' ? styles.active : ''}`}
                     >
                         hot
-                    </a>
-                    <a 
+                    </button>
+                    <button 
                         onClick={() => setSortBy('real-time')} 
                         className={`${sortBy === 'real-time' ? styles.active : ''}`}
                     >
                         real-time
-                    </a>
+                    </button>
                 </div>
             </div>
             
